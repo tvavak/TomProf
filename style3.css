@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #874a65;
+  --secondary-color: #7d6287; /* Changed to gray */
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --bg-color: #f0f0f0;
+  --button-color: #874a65;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Police principale pour le texte */
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.math-symbols {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.math-symbol {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.3);
+  animation: floatSymbol 10s linear infinite;
+}
+
+@keyframes floatSymbol {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif; /* Utilisation de Montserrat pour les liens de navigation */
+}
+
+nav ul li a:hover, 
+nav ul li a:focus {
+  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.page-title {
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+  padding: 4px 0;
+  font-family: 'Montserrat', sans-serif; /* Utilisation de Montserrat pour les titres de page */
+}
+
+.page-title h1 {
+  font-size: 1.5em;
+  margin-bottom: 1px;
+}
+
+.contact-content {
+  padding: 60px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.contact-info {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--primary-color); /* Added border */
+  font-family: 'Roboto', sans-serif; /* Utilisation de Roboto pour le texte de contact */
+}
+
+.contact-info h2 {
+  font-size: 2em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; /* Utilisation de Montserrat pour les titres de contact */
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact-item i {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-right: 15px;
+}
+
+.contact-item p {
+  margin: 0;
+}
+
+.contact-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: 'Roboto', sans-serif; /* Utilisation de Roboto pour les liens de contact */
+}
+
+.contact-item a:hover {
+  color: var(--accent-color);
+}
+
+.hours {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif; /* Utilisation de Roboto pour les heures */
+}
+
+.hours h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif; /* Utilisation de Montserrat pour les titres des heures */
+}
+
+.map-container {
+  height: 100%;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-family: 'Roboto', sans-serif; /* Utilisation de Roboto pour le texte du footer */
+}
+
+.animate-slide.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
